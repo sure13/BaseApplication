@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.android.baseapplication">
+
+    <uses-feature android:name="android.hardware.camera"/>
+    <!--相机权限-->
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <!--写入SD卡的权限：如果你希望保存相机拍照后的照片-->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!--读取SD卡的权限:打开相册选取图片所必须的权限-->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+
+    <application
+        android:theme="@style/AppTheme"
+        android:supportsRtl="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:icon="@mipmap/ic_launcher"
+        android:allowBackup="true">
+
+
+    <activity android:name=".ui.activity.SplashActivity">
+            <intent-filter>
+                 <action android:name="android.intent.action.MAIN"/>
+                 <category android:name="android.intent.category.LAUNCHER"/>
+             </intent-filter>
+
+    </activity>
+
+    <activity android:name=".ui.activity.LoginActivity"/>
+    <activity android:name=".ui.activity.MainActivity"/>
+    <activity android:name=".ui.activity.WelcomeActivity"/>
+    <activity android:name=".ui.activity.AboutActivity"/>
+    <activity android:name=".ui.activity.TheamActivity"/>
+    <activity android:name=".ui.activity.FarvorateActivity"/>
+    <activity android:name=".ui.activity.SettingActivity"/>
+    <activity android:name=".ui.activity.ModleActivity"/>
+
+
+    <provider android:name=".Dao.MyProvider" android:exported="true" android:authorities="com.action.test"/>
+    <provider android:name="androidx.core.content.FileProvider"
+        android:exported="false"
+        android:authorities="test.example.com.onetest.fileprovider"
+        android:grantUriPermissions="true">
+    <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+        android:resource="@xml/file_paths"/>
+
+     </provider>
+    </application>
+
+</manifest>
